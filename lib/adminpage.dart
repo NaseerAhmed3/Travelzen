@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/signin.dart';
+import 'package:flutter_application_1/signup.dart';
 
 class Adminpage extends StatefulWidget {
   const Adminpage({super.key});
@@ -87,16 +88,25 @@ class _AdminpageState extends State<Adminpage> {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: Container(
-                          width: 150.0,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Empolyees",
-                              style: TextStyle(fontSize: 25),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Signup()),
+                            );
+                          },
+                          child: Container(
+                            width: 150.0,
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Empolyees",
+                                style: TextStyle(fontSize: 25),
+                              ),
                             ),
                           ),
                         ),
