@@ -27,12 +27,12 @@ class _SigninState extends State<Signin> {
           child: SingleChildScrollView(
             child: Column(children: [
               Container(
-                  height: 420,
+                  height: 380,
                   width: double.infinity,
                   child: Column(
                     children: [
                       Container(
-                        height: 300,
+                        height: 290,
                         width: 350,
                         decoration: const BoxDecoration(
                           image: DecorationImage(

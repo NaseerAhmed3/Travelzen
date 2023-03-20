@@ -33,7 +33,7 @@ class _SignupState extends State<Signup> {
                         width: 350,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage("assets/images/travling.png"),
+                            image: AssetImage("assets/images/image2.jpg"),
                           ),
                         ),
                       ),
@@ -155,14 +155,18 @@ class _SignupState extends State<Signup> {
                         },
                       ),
                     ),
-                    Row(children: [
-                      SizedBox(
-                        width: 200,
+                    SizedBox(
+                      height: 70,
+                      width: 400,
+                      child: Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text("Forgot your Password?"),
+                          ),
+                        ],
                       ),
-                      TextButton(
-                          onPressed: () {},
-                          child: Text("Forgot your Password?"))
-                    ]),
+                    ),
                   ],
                 ),
               ),
