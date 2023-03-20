@@ -31,6 +31,15 @@ class Map_list extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          // image: NetworkImage(
+          //     "https://images.pexels.com/photos/6307706/pexels-photo-6307706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+          image: AssetImage("assets/images/map.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
   }
 }

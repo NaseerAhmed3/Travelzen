@@ -42,6 +42,36 @@ class Customer_list extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Container(
+            margin: EdgeInsets.all(20),
+            child: DataTable(columns: [
+              DataColumn(
+                label: Text('ID'),
+              ),
+              DataColumn(
+                label: Text('Name'),
+              ),
+              DataColumn(
+                label: Text('Code'),
+              ),
+              DataColumn(
+                label: Text('Quantity'),
+              ),
+              DataColumn(
+                label: Text('Amount'),
+              ),
+            ], rows: [
+              DataRow(cells: [
+                DataCell(Text('1')),
+                DataCell(Text('Arshik')),
+                DataCell(Text('5644645')),
+                DataCell(Text('3')),
+                DataCell(Text('265\$')),
+              ])
+            ])),
+      ),
+    );
   }
 }
