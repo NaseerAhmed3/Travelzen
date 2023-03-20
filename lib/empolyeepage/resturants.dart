@@ -11,6 +11,8 @@ class Resturants extends StatefulWidget {
 class _ResturantsState extends State<Resturants> {
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    Orientation orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       appBar: AppBar(
         title: Text(" Resturant"),
@@ -62,13 +64,13 @@ class _ResturantsState extends State<Resturants> {
       ),
       body: Container(
         height: double.infinity,
-        width: 500,
+        width: double.infinity,
         child: Center(
             child: ListView(
           padding: const EdgeInsets.all(15),
           children: <Widget>[
             Container(
-              height: 100,
+              height: 500,
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
                 gradient: LinearGradient(
@@ -89,7 +91,7 @@ class _ResturantsState extends State<Resturants> {
               height: 20,
             ),
             Container(
-              height: 100,
+              height: 500,
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
                 gradient: LinearGradient(
@@ -110,7 +112,7 @@ class _ResturantsState extends State<Resturants> {
               height: 20,
             ),
             Container(
-              height: 100,
+              height: 500,
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
                 gradient: LinearGradient(
