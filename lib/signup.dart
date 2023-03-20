@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'appbar/appbar.dart';
+
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
@@ -108,8 +110,8 @@ class _SignupState extends State<Signup> {
                           ),
                         ),
                         validator: (text) {
-                          if (!(text!.contains('@')) && text.isNotEmpty) {
-                            return 'Text is empty';
+                          if (!(text!.contains('@')) || text.isEmpty) {
+                            return 'Enter a valid email address!';
                           }
                           return null;
                         },
@@ -132,7 +134,7 @@ class _SignupState extends State<Signup> {
                             )),
                         validator: (text) {
                           if (text == null || text.isEmpty) {
-                            return 'Text is empty';
+                            return 'Enter your empty';
                           }
                           return null;
                         },
@@ -151,7 +153,13 @@ class _SignupState extends State<Signup> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/homedirect');
+                    if (_formKey.currentState!.validate()) {
+                      // TODO submit
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Appbar()),
+                      );
+                    }
                   },
                   child: Text("SignUp"),
                   style: ElevatedButton.styleFrom(

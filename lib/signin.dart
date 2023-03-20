@@ -76,7 +76,7 @@ class _SigninState extends State<Signin> {
                           ),
                         ),
                         validator: (text) {
-                          if (!(text!.contains('@')) && text.isNotEmpty) {
+                          if (!(text!.contains('@')) || text.isEmpty) {
                             return 'Enter a valid email address!';
                           }
                           return null;
@@ -101,7 +101,7 @@ class _SigninState extends State<Signin> {
                         ),
                         validator: (text) {
                           if (text == null || text.isEmpty) {
-                            return 'Password is empty';
+                            return 'Enter your Password';
                           }
                           return null;
                         },
