@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/empolyeepage/cars.dart';
+import 'package:flutter_application_1/empolyeepage/resturants.dart';
 import 'package:flutter_application_1/signin.dart';
 
 void main() {
@@ -14,8 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: Appbar(),
       // home: Adminpage(),
-      home: Signin(),
+      // home: Signin(),
       // home: Signup(),
+      // home: cars(),
+      home: Resturants(),
     );
   }
 }
