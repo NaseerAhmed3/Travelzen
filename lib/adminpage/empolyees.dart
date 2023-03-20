@@ -14,16 +14,15 @@ class _EmpolyeesState extends State<Empolyees> {
       padding: const EdgeInsets.all(4.0),
       child: InkWell(
         onTap: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //       builder: (context) => const Signup()),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Empolyees_list()),
+          );
         },
         child: Container(
           width: 150.0,
           decoration: BoxDecoration(
-            color: Colors.red,
+            // color: Colors.red,
             borderRadius: BorderRadius.circular(30),
           ),
           child: Center(
@@ -35,5 +34,14 @@ class _EmpolyeesState extends State<Empolyees> {
         ),
       ),
     );
+  }
+}
+
+class Empolyees_list extends StatelessWidget {
+  const Empolyees_list({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

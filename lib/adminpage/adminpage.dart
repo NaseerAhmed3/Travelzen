@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/adminpage/dashboard/hotels.dart';
+import 'package:flutter_application_1/adminpage/dashboard/map_routs.dart';
+import 'package:flutter_application_1/adminpage/dashboard/ongoing_trips.dart';
+import 'package:flutter_application_1/adminpage/dashboard/resturants.dart';
+import 'package:flutter_application_1/adminpage/dashboard/timetable.dart';
+import 'package:flutter_application_1/adminpage/dashboard/touristpoint.dart';
 import 'package:flutter_application_1/adminpage/listview.dart';
 
 class Adminpage extends StatefulWidget {
@@ -12,74 +18,47 @@ class _AdminpageState extends State<Adminpage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // color: Colors.amber,
       height: double.infinity,
       width: double.infinity,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 5),
-            child: Container(
-              height: 50,
-              child: listview(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 0),
-            child: Container(
-              height: 600,
-              width: double.infinity,
-              child: GridView.count(
-                primary: false,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 30,
-                mainAxisSpacing: 30,
-                crossAxisCount: 2,
-                children: <Widget>[
-                  InkWell(
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      color: Colors.teal[100],
-                      child: const Text("He'd have you all unravel at the"),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.teal[200],
-                    child: const Text('Heed not the rabble'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.teal[300],
-                    child: const Text('Sound of screams but the'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.teal[400],
-                    child: const Text('Who scream'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.teal[500],
-                    child: const Text('Revolution is coming...'),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/maponly');
-                    },
-                    child: Container(
-                      height: 300,
-                      width: double.infinity,
-                      color: Color.fromARGB(255, 139, 185, 223),
-                    ),
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Container(
+                height: 50,
+                child: listview(),
               ),
             ),
-          )
-        ],
+            Container(
+              height: 650,
+              width: double.infinity,
+              child: GridView.count(
+                padding: const EdgeInsets.all(8),
+                crossAxisSpacing: 15,
+                mainAxisSpacing: 15,
+                crossAxisCount: 2,
+                childAspectRatio: 4,
+                children: <Widget>[
+                  // Hotels
+                  Hotels(),
+                  // Resturant
+                  Restursnts(),
+                  //  Tourist point
+                  Toutist_point(),
+                  // Map Routs
+                  Map_routs(),
+                  // Ongoing Trip
+                  Ongoing_trips(),
+                  // TimeTable
+                  Timetable(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
