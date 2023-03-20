@@ -134,7 +134,7 @@ class _SignupState extends State<Signup> {
                             )),
                         validator: (text) {
                           if (text == null || text.isEmpty) {
-                            return 'Enter your empty';
+                            return 'Enter your password';
                           }
                           return null;
                         },
