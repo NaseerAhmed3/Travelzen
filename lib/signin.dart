@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/appbar/appbar.dart';
+import 'package:flutter_application_1/signup.dart';
 
 class Signin extends StatefulWidget {
   const Signin({super.key});
@@ -75,8 +76,8 @@ class _SigninState extends State<Signin> {
                           ),
                         ),
                         validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return 'Text is empty';
+                          if (!(text!.contains('@')) && text.isNotEmpty) {
+                            return 'Enter a valid email address!';
                           }
                           return null;
                         },
@@ -163,7 +164,14 @@ class _SigninState extends State<Signin> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("You don't have an account?"),
-                  TextButton(onPressed: () {}, child: Text("Signup Here!"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Signup()),
+                        );
+                      },
+                      child: Text("Signup Here!"))
                 ],
               ),
             ]),
