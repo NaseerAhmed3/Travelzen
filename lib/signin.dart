@@ -104,21 +104,21 @@ class _SigninState extends State<Signin> {
                           if (text == null || text.isEmpty) {
                             return 'Enter your password';
                           }
-                          if (text.length < 8) {
-                            return "Password must has 8 characters";
-                          }
-                          if (!text.contains(RegExp(r'[A-Z]'))) {
-                            return "Password must has uppercase";
-                          }
-                          if (!text.contains(RegExp(r'[0-9]'))) {
-                            return "Password must has digits";
-                          }
-                          if (!text.contains(RegExp(r'[a-z]'))) {
-                            return "Password must has lowercase";
-                          }
-                          if (!text.contains(RegExp(r'[#?!@$%^&*-]'))) {
-                            return "Password must has special characters";
-                          }
+                          // if (text.length < 8) {
+                          //   return "Password must has 8 characters";
+                          // }
+                          // if (!text.contains(RegExp(r'[A-Z]'))) {
+                          //   return "Password must has uppercase";
+                          // }
+                          // if (!text.contains(RegExp(r'[0-9]'))) {
+                          //   return "Password must has digits";
+                          // }
+                          // if (!text.contains(RegExp(r'[a-z]'))) {
+                          //   return "Password must has lowercase";
+                          // }
+                          // if (!text.contains(RegExp(r'[#?!@$%^&*-]'))) {
+                          //   return "Password must has special characters";
+                          // }
                           return null;
                         },
                       ),
