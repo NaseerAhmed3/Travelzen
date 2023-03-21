@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: Appbar(),
       // home: Adminpage(),
-      // home: Signin(),
+      home: Signin(),
       // home: Signup(),
       // home: cars(),
-      home: Resturants(),
+      // home: Resturants(),
     );
   }
 }
