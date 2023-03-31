@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/appbar/appbar.dart';
 import 'package:flutter_application_1/signup.dart';
@@ -9,10 +10,18 @@ class Signin extends StatefulWidget {
   State<Signin> createState() => _SigninState();
 }
 
+final emailcontroller = TextEditingController();
+final passwordcontroller = TextEditingController();
+
 class _SigninState extends State<Signin> {
   final _formKey = GlobalKey<FormState>(); //for storing form state.
 
 //saving form after validation
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   bool value = false;
@@ -26,7 +35,7 @@ class _SigninState extends State<Signin> {
           color: Colors.white,
           child: SingleChildScrollView(
             child: Column(children: [
-              Container(
+              SizedBox(
                   height: 380,
                   width: double.infinity,
                   child: Column(
@@ -66,6 +75,7 @@ class _SigninState extends State<Signin> {
                       height: 70,
                       width: 400,
                       child: TextFormField(
+                        controller: emailcontroller,
                         decoration: InputDecoration(
                           label: Text("Email"),
                           enabledBorder: OutlineInputBorder(
@@ -91,6 +101,7 @@ class _SigninState extends State<Signin> {
                       height: 70,
                       width: 400,
                       child: TextFormField(
+                        controller: passwordcontroller,
                         decoration: InputDecoration(
                           label: Text("Password"),
                           enabledBorder: OutlineInputBorder(
@@ -146,6 +157,7 @@ class _SigninState extends State<Signin> {
                         context,
                         MaterialPageRoute(builder: (context) => Appbar()),
                       );
+                      signin();
                     }
                   },
                   child: Text("Sign in"),
@@ -196,4 +208,10 @@ class _SigninState extends State<Signin> {
       ),
     );
   }
+}
+
+Future signin() async {
+  await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailcontroller.text.trim(),
+      password: passwordcontroller.text.trim());
 }
