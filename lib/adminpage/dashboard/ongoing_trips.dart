@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class Ongoing_trips extends StatefulWidget {
@@ -34,25 +36,25 @@ class Trip_list extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: DataTable(columns: [
-              DataColumn(
+              const DataColumn(
                 label: Text('ID'),
               ),
-              DataColumn(
+              const DataColumn(
                 label: Text('Name'),
               ),
-              DataColumn(
+              const DataColumn(
                 label: Text('Code'),
               ),
-              DataColumn(
+              const DataColumn(
                 label: Text('Quantity'),
               ),
-              DataColumn(
+              const DataColumn(
                 label: Text('Amount'),
               ),
             ], rows: [
-              DataRow(cells: [
+              const DataRow(cells: [
                 DataCell(Text('1')),
                 DataCell(Text('Arshik')),
                 DataCell(Text('5644645')),

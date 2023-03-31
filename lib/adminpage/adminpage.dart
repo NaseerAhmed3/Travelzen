@@ -17,47 +17,47 @@ class Adminpage extends StatefulWidget {
 class _AdminpageState extends State<Adminpage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.amber,
-      height: double.infinity,
-      width: double.infinity,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Container(
-                height: 50,
-                child: listview(),
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(5),
+                child: SizedBox(
+                  height: 50,
+                  child: listview(),
+                ),
               ),
-            ),
-            Container(
-              height: 650,
-              width: double.infinity,
-              child: GridView.count(
-                padding: const EdgeInsets.all(8),
-                crossAxisSpacing: 15,
-                mainAxisSpacing: 15,
-                crossAxisCount: 2,
-                childAspectRatio: 4,
-                children: <Widget>[
-                  // Hotels
-                  Hotels(),
-                  // Resturant
-                  Restursnts(),
-                  //  Tourist point
-                  Toutist_point(),
-                  // Map Routs
-                  Map_routs(),
-                  // Ongoing Trip
-                  Ongoing_trips(),
-                  // TimeTable
-                  Timetable(),
-                ],
-              ),
-            )
-          ],
+              Container(
+                height: 900,
+                // color: Colors.amber,
+                width: double.infinity,
+                child: GridView.count(
+                  padding: const EdgeInsets.all(8),
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
+                  crossAxisCount: 1,
+                  childAspectRatio: 4,
+                  children: const <Widget>[
+                    // Hotels
+                    Hotels(),
+                    // Resturant
+                    Restursnts(),
+                    //  Tourist point
+                    Toutist_point(),
+                    // Map Routs
+                    Map_routs(),
+                    // Ongoing Trip
+                    Ongoing_trips(),
+                    // TimeTable
+                    Timetable(),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

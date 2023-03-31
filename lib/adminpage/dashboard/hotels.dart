@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 
 class Hotels extends StatefulWidget {
@@ -34,8 +36,8 @@ class Hotels_list extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-            margin: EdgeInsets.all(20),
-            child: DataTable(columns: [
+            margin: const EdgeInsets.all(20),
+            child: DataTable(columns: const [
               DataColumn(
                 label: Text('ID'),
               ),
@@ -51,7 +53,7 @@ class Hotels_list extends StatelessWidget {
               DataColumn(
                 label: Text('Amount'),
               ),
-            ], rows: [
+            ], rows: const [
               DataRow(cells: [
                 DataCell(Text('1')),
                 DataCell(Text('Arshik')),
