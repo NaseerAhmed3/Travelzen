@@ -5,6 +5,8 @@ import 'package:flutter_application_1/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'adminpage/adminpage.dart';
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -24,10 +26,28 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: Appbar(),
       // home: Adminpage(),
-      home: Signin(),
+      home: Mainclass(),
       // home: Signup(),
       // home: cars(),
       // home: Resturants(),
+    );
+  }
+}
+
+class Mainclass extends StatelessWidget {
+  const Mainclass({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return Adminpage();
+        } else {
+          return Signin();
+        }
+      },
     );
   }
 }
