@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'adminpage/adminpage.dart';
+import 'appbar/appbar.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,11 +43,23 @@ class Mainclass extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return Adminpage();
-        } else {
-          return Signin();
-        }
+        return Signin();
+        // if (snapshot.connectionState == ConnectionState.waiting) {
+        //   return Center(
+        //     child: CircularProgressIndicator(),
+        //   );
+        // } else if (snapshot.hasError) {
+        //   return Center(
+        //     child: Text("Something went wrong!"),
+        //   );
+        // } else if (snapshot.hasData) {
+        //   print("its ok");
+        //   return Appbar();
+        // } else {
+        //   print("its wrong");
+
+        //   return Signin();
+        // }
       },
     );
   }

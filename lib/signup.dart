@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/signin.dart';
 
 import 'appbar/appbar.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -11,6 +15,14 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  void dispose() {
+    email.dispose();
+    password.dispose();
+    super.dispose();
+  }
+
   @override
   bool value = false;
   Widget build(BuildContext context) {
@@ -100,6 +112,7 @@ class _SignupState extends State<Signup> {
                       height: 70,
                       width: 400,
                       child: TextFormField(
+                        controller: email,
                         decoration: InputDecoration(
                           label: Text("Email"),
                           enabledBorder: OutlineInputBorder(
@@ -124,6 +137,7 @@ class _SignupState extends State<Signup> {
                       height: 70,
                       width: 400,
                       child: TextFormField(
+                        controller: password,
                         decoration: InputDecoration(
                             label: Text("Password"),
                             enabledBorder: OutlineInputBorder(
@@ -171,13 +185,22 @@ class _SignupState extends State<Signup> {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       // TODO submit
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Appbar()),
-                      );
+                      try {
+                        await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: email.text.trim(),
+                                password: password.text.trim());
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Appbar()),
+                        );
+                      } catch (e) {
+                        print(e);
+                      }
                     }
                   },
                   child: Text("SignUp"),
@@ -212,7 +235,14 @@ class _SignupState extends State<Signup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("You  have an account?"),
-                  TextButton(onPressed: () {}, child: Text("Signin Here!"))
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Signin()),
+                        );
+                      },
+                      child: Text("Signin Here!"))
                 ],
               ),
             ]),

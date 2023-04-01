@@ -150,14 +150,21 @@ class _SigninState extends State<Signin> {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       // TODO submit
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Appbar()),
-                      );
-                      signin();
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                            email: emailcontroller.text.trim(),
+                            password: passwordcontroller.text.trim());
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Appbar()),
+                        );
+                      } catch (e) {
+                        print(e);
+                      }
                     }
                   },
                   child: Text("Sign in"),
@@ -208,10 +215,4 @@ class _SigninState extends State<Signin> {
       ),
     );
   }
-}
-
-Future signin() async {
-  await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailcontroller.text.trim(),
-      password: passwordcontroller.text.trim());
 }
