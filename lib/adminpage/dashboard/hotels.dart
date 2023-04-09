@@ -5,6 +5,7 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/adminpage/dashboard/Showdata.dart';
 
 class Hotels extends StatefulWidget {
   const Hotels({super.key});
@@ -20,7 +21,7 @@ class _HotelsState extends State<Hotels> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Hotels_list()),
+          MaterialPageRoute(builder: (context) => const Showdata()),
         );
       },
       child: Container(
@@ -63,12 +64,19 @@ class _Hotels_listState extends State<Hotels_list> {
     return data;
   }
 
+  // Stream<List<User>> readUsers() => FirebaseFirestore.instance
+  //     .collection('travelzen')
+  //     .snapshots()
+  //     .map((snapshots) => snapshots.docs.map((doc) => doc.data()).toList()
+  //     // return userlist;
+  //     );
+
   Future createUser(
       {required String hotel_name, address, r_contact, rooms}) async {
     final docs = await FirebaseFirestore.instance.collection('travelzen').doc();
     final json = {
       'id': docs.id,
-      'Hotel Name': hotel_name,
+      'Hotel-Name': hotel_name,
       'Address': address,
       'r_contact': r_contact,
       'rooms': rooms,
@@ -147,4 +155,31 @@ class _Hotels_listState extends State<Hotels_list> {
       ),
     );
   }
+}
+
+class User {
+  // String id;
+  // final String hotel_name;
+  // final String address;
+  // late final int reception_contact;
+  // late final int rooms;
+  // User(
+  //     {this.id = '',
+  //     required this.hotel_name,
+  //     required this.address,
+  //     required this.reception_contact,
+  //     required this.rooms});
+
+  Map<String, dynamic> tojason() => {
+        'Hotel Name': hotel_name,
+        'Address': address,
+        'r_contact': r_contact,
+        'rooms': rooms,
+      };
+  // static User fromJson(Map<String, dynamic> json) => User(
+  //       hotel_name: json['Hotel Name'],
+  //       address: json['Address'],
+  //       reception_contact: json['r_contact'],
+  //       rooms: json['rooms'],
+  //     );
 }
