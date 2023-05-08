@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/empolyeepage/cars.dart';
-import 'package:flutter_application_1/empolyeepage/resturants.dart';
 import 'package:flutter_application_1/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-
-import 'adminpage/adminpage.dart';
-import 'appbar/appbar.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.blue[900],
+      ),
       // home: Appbar(),
       // home: Adminpage(),
       home: Mainclass(),

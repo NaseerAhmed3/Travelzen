@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/appbar/appbar.dart';
+import 'package:flutter_application_1/adminpage/adminpage.dart';
+
 import 'package:flutter_application_1/signup.dart';
 
 class Signin extends StatefulWidget {
@@ -160,7 +161,7 @@ class _SigninState extends State<Signin> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Appbar()),
+                          MaterialPageRoute(builder: (context) => Adminpage()),
                         );
                       } catch (e) {
                         print(e);

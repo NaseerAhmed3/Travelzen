@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/adminpage/adminpage.dart';
 import 'package:flutter_application_1/signin.dart';
-
-import 'appbar/appbar.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -196,7 +195,7 @@ class _SignupState extends State<Signup> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Appbar()),
+                          MaterialPageRoute(builder: (context) => Adminpage()),
                         );
                       } catch (e) {
                         print(e);
