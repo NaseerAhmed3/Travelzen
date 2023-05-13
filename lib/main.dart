@@ -3,6 +3,8 @@ import 'package:flutter_application_1/signin.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'adminpage/adminpage.dart';
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -21,11 +23,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue[900],
+        primaryColor: Color.fromARGB(1, 159, 190, 238),
       ),
       // home: Appbar(),
-      // home: Adminpage(),
-      home: Mainclass(),
+      home: Adminpage(),
+      // home: Mainclass(),
       // home: Signup(),
       // home: cars(),
       // home: Resturants(),

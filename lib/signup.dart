@@ -217,7 +217,7 @@ class _SignupState extends State<Signup> {
                   ElevatedButton.icon(
                       onPressed: () {},
                       icon: Icon(Icons.email),
-                      label: Text("Gail"),
+                      label: Text("Gmail"),
                       style: ElevatedButton.styleFrom(
                           fixedSize: Size(150, 50),
                           backgroundColor: Colors.black)),

@@ -3,9 +3,13 @@ import 'package:flutter_application_1/adminpage/dashboard/hotels.dart';
 // import 'package:flutter_application_1/adminpage/dashboard/map_routs.dart';
 import 'package:flutter_application_1/adminpage/dashboard/active_tours.dart';
 import 'package:flutter_application_1/adminpage/dashboard/resturants.dart';
+import 'package:flutter_application_1/components/Categorries.dart';
+import 'package:flutter_application_1/components/textfeild.dart';
+import 'package:flutter_application_1/components/tourslist.dart';
+
+import '../components/constant.dart';
 // import 'package:flutter_application_1/adminpage/dashboard/timetable.dart';
 // import 'package:flutter_application_1/adminpage/dashboard/touristpoint.dart';
-import 'package:flutter_application_1/adminpage/listview.dart';
 
 class Adminpage extends StatefulWidget {
   const Adminpage({super.key});
@@ -14,15 +18,15 @@ class Adminpage extends StatefulWidget {
   State<Adminpage> createState() => _AdminpageState();
 }
 
+TextEditingController _textEditingController = TextEditingController();
+
 class _AdminpageState extends State<Adminpage> {
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "THE TOURS",
             style: TextStyle(fontSize: 20),
           ),
@@ -32,35 +36,58 @@ class _AdminpageState extends State<Adminpage> {
             //   backgroundImage: NetworkImage(
             //       "https://images.pexels.com/photos/13720883/pexels-photo-13720883.jpeg"),
             // ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.notifications))
+            IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
           ],
         ),
         body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Padding(
-                padding: EdgeInsets.all(5),
-                child: SizedBox(
+          child: Container(
+            height: double.maxFinite,
+            width: double.infinity,
+            color: Colors.amber,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
                   height: 50,
-                  child: listview(),
-                ),
-              ),
-              Container(
-                  color: Colors.amber,
-                  height: 500,
                   width: double.infinity,
-                  child: ListView.builder(
-                      padding: const EdgeInsets.all(8),
-                      itemCount: entries.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          height: 500,
-                          color: Colors.amber[colorCodes[index]],
-                          child: Center(child: Text('Entry ${entries[index]}')),
-                        );
-                      }))
-            ],
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Add Tour",
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
+                        ),
+                        IconButton(
+                            onPressed: () {}, icon: const Icon(Icons.add))
+                      ],
+                    ),
+                  ),
+                ),
+                RoundedInputField(hintText: "Search", picons: Icons.search),
+                Categories(),
+                Expanded(
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+                    child: ListView.builder(
+                        // itemCount: products.length,
+
+                        itemBuilder: (context, index) => ToursList(
+                            // press: () => Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => DetailsScreen(
+                            //         // product: products[index],
+                            //       ),
+                            //     )),
+                            )),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
