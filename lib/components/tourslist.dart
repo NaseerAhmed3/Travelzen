@@ -10,7 +10,7 @@ class ToursList extends StatelessWidget {
     return Container(
       height: 500,
       width: 500,
-      color: Colors.amberAccent,
+      color: Colors.blueAccent,
     );
   }
 }
