@@ -18,6 +18,7 @@ class _SigninState extends State<Signin> {
   final _formKey = GlobalKey<FormState>(); //for storing form state.
 
 //saving form after validation
+  @override
   void dispose() {
     emailcontroller.dispose();
     passwordcontroller.dispose();
@@ -26,6 +27,7 @@ class _SigninState extends State<Signin> {
 
   @override
   bool value = false;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -55,20 +57,20 @@ class _SigninState extends State<Signin> {
                       ),
                       Text(
                         "Welcome",
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "Login Here!",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ],
                   )),
-              SizedBox(height: 20),
-              Container(
+              const SizedBox(height: 20),
+              SizedBox(
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -78,9 +80,9 @@ class _SigninState extends State<Signin> {
                       child: TextFormField(
                         controller: emailcontroller,
                         decoration: InputDecoration(
-                          label: Text("Email"),
+                          label: const Text("Email"),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(50),
@@ -95,7 +97,7 @@ class _SigninState extends State<Signin> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SizedBox(
@@ -104,9 +106,9 @@ class _SigninState extends State<Signin> {
                       child: TextFormField(
                         controller: passwordcontroller,
                         decoration: InputDecoration(
-                          label: Text("Password"),
+                          label: const Text("Password"),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(50),
@@ -142,7 +144,7 @@ class _SigninState extends State<Signin> {
                         children: [
                           TextButton(
                             onPressed: () {},
-                            child: Text("Forgot your Password?"),
+                            child: const Text("Forgot your Password?"),
                           ),
                         ],
                       ),
@@ -161,53 +163,53 @@ class _SigninState extends State<Signin> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Adminpage()),
+                          MaterialPageRoute(builder: (context) => const Adminpage()),
                         );
                       } catch (e) {
                         print(e);
                       }
                     }
                   },
-                  child: Text("Sign in"),
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(250, 50),
-                    backgroundColor: Color.fromARGB(255, 53, 51, 182),
-                  )),
-              SizedBox(
+                    fixedSize: const Size(250, 50),
+                    backgroundColor: const Color.fromARGB(255, 53, 51, 182),
+                  ),
+                  child: const Text("Sign in")),
+              const SizedBox(
                 height: 30,
               ),
-              Text("OR"),
+              const Text("OR"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.email),
-                      label: Text("Gmail"),
+                      icon: const Icon(Icons.email),
+                      label: const Text("Gmail"),
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(150, 50),
+                          fixedSize: const Size(150, 50),
                           backgroundColor: Colors.black)),
                   ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.facebook),
-                      label: Text("Facebook"),
+                      icon: const Icon(Icons.facebook),
+                      label: const Text("Facebook"),
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(150, 50),
+                          fixedSize: const Size(150, 50),
                           backgroundColor: Colors.black)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("You don't have an account?"),
+                  const Text("You don't have an account?"),
                   TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Signup()),
+                          MaterialPageRoute(builder: (context) => const Signup()),
                         );
                       },
-                      child: Text("Signup Here!"))
+                      child: const Text("Signup Here!"))
                 ],
               ),
             ]),

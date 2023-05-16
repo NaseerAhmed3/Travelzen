@@ -16,6 +16,7 @@ class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
   final email = TextEditingController();
   final password = TextEditingController();
+  @override
   void dispose() {
     email.dispose();
     password.dispose();
@@ -24,6 +25,7 @@ class _SignupState extends State<Signup> {
 
   @override
   bool value = false;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -34,7 +36,7 @@ class _SignupState extends State<Signup> {
           color: Colors.white,
           child: SingleChildScrollView(
             child: Column(children: [
-              Container(
+              SizedBox(
                   height: 325,
                   width: double.infinity,
                   child: Column(
@@ -42,7 +44,7 @@ class _SignupState extends State<Signup> {
                       Container(
                         height: 230,
                         width: 350,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("assets/images/image2.jpg"),
                           ),
@@ -50,20 +52,20 @@ class _SignupState extends State<Signup> {
                       ),
                       Text(
                         "Welcome",
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Text(
+                      const Text(
                         "Login Here!",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                     ],
                   )),
-              SizedBox(height: 30),
-              Container(
+              const SizedBox(height: 30),
+              SizedBox(
                 width: double.infinity,
                 child: Column(
                   children: [
@@ -72,9 +74,9 @@ class _SignupState extends State<Signup> {
                       width: 400,
                       child: TextFormField(
                         decoration: InputDecoration(
-                            label: Text("First Name"),
+                            label: const Text("First Name"),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 1,
                               ),
                               borderRadius: BorderRadius.circular(50),
@@ -92,9 +94,9 @@ class _SignupState extends State<Signup> {
                       width: 400,
                       child: TextFormField(
                         decoration: InputDecoration(
-                            label: Text("Second Name"),
+                            label: const Text("Second Name"),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 1,
                               ),
                               borderRadius: BorderRadius.circular(50),
@@ -113,9 +115,9 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         controller: email,
                         decoration: InputDecoration(
-                          label: Text("Email"),
+                          label: const Text("Email"),
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               width: 1,
                             ),
                             borderRadius: BorderRadius.circular(50),
@@ -129,7 +131,7 @@ class _SignupState extends State<Signup> {
                         },
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SizedBox(
@@ -138,9 +140,9 @@ class _SignupState extends State<Signup> {
                       child: TextFormField(
                         controller: password,
                         decoration: InputDecoration(
-                            label: Text("Password"),
+                            label: const Text("Password"),
                             enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 width: 1,
                               ),
                               borderRadius: BorderRadius.circular(50),
@@ -175,7 +177,7 @@ class _SignupState extends State<Signup> {
                         children: [
                           TextButton(
                             onPressed: () {},
-                            child: Text("Forgot your Password?"),
+                            child: const Text("Forgot your Password?"),
                           ),
                         ],
                       ),
@@ -195,53 +197,53 @@ class _SignupState extends State<Signup> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Adminpage()),
+                          MaterialPageRoute(builder: (context) => const Adminpage()),
                         );
                       } catch (e) {
                         print(e);
                       }
                     }
                   },
-                  child: Text("SignUp"),
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(250, 50),
-                    backgroundColor: Color.fromARGB(255, 53, 51, 182),
-                  )),
-              SizedBox(
+                    fixedSize: const Size(250, 50),
+                    backgroundColor: const Color.fromARGB(255, 53, 51, 182),
+                  ),
+                  child: const Text("SignUp")),
+              const SizedBox(
                 height: 30,
               ),
-              Text("OR"),
+              const Text("OR"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.email),
-                      label: Text("Gmail"),
+                      icon: const Icon(Icons.email),
+                      label: const Text("Gmail"),
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(150, 50),
+                          fixedSize: const Size(150, 50),
                           backgroundColor: Colors.black)),
                   ElevatedButton.icon(
                       onPressed: () {},
-                      icon: Icon(Icons.facebook),
-                      label: Text("Facebook"),
+                      icon: const Icon(Icons.facebook),
+                      label: const Text("Facebook"),
                       style: ElevatedButton.styleFrom(
-                          fixedSize: Size(150, 50),
+                          fixedSize: const Size(150, 50),
                           backgroundColor: Colors.black)),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("You  have an account?"),
+                  const Text("You  have an account?"),
                   TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Signin()),
+                          MaterialPageRoute(builder: (context) => const Signin()),
                         );
                       },
-                      child: Text("Signin Here!"))
+                      child: const Text("Signin Here!"))
                 ],
               ),
             ]),

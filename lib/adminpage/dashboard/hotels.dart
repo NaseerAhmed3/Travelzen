@@ -1,9 +1,7 @@
 // ignore_for_file: camel_case_types, dead_code
 
-import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/adminpage/dashboard/Showdata.dart';
 
@@ -73,7 +71,7 @@ class _Hotels_listState extends State<Hotels_list> {
 
   Future createUser(
       {required String hotel_name, address, r_contact, rooms}) async {
-    final docs = await FirebaseFirestore.instance.collection('travelzen').doc();
+    final docs = FirebaseFirestore.instance.collection('travelzen').doc();
     final json = {
       'id': docs.id,
       'Hotel-Name': hotel_name,
@@ -97,39 +95,39 @@ class _Hotels_listState extends State<Hotels_list> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: "Hotel Name"),
                 controller: hotel_name,
               ),
               TextField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: "Hotel Address"),
                 controller: address,
               ),
               TextField(
                 controller: r_contact,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: "Reception Contact"),
                 keyboardType: TextInputType.number,
               ),
               TextField(
                 controller: rooms,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(), hintText: "No of Rooms"),
                 keyboardType: TextInputType.number,
               ),
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 onPressed: () {
-                  final Hotel_Name = hotel_name.text;
+                  final hotelName = hotel_name.text;
                   final Address = address.text;
-                  final Reception_contact = r_contact.text;
+                  final receptionContact = r_contact.text;
                   final Rooms = rooms.text;
                   createUser(
-                    hotel_name: Hotel_Name,
+                    hotel_name: hotelName,
                     address: Address,
-                    r_contact: Reception_contact,
+                    r_contact: receptionContact,
                     rooms: Rooms,
                   );
                 },
@@ -142,7 +140,7 @@ class _Hotels_listState extends State<Hotels_list> {
                     if (snapshot.hasData) {
                       return Text(snapshot.data.toString());
                     } else {
-                      return Text('No data available');
+                      return const Text('No data available');
                     }
                   } else {
                     return Center(child: Text(data));

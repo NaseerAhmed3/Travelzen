@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class DataContainer extends StatelessWidget {
   final tour;
@@ -11,7 +9,7 @@ class DataContainer extends StatelessWidget {
   final reg_num;
   final begin_date;
   final end_date;
-  DataContainer({
+  DataContainer({super.key, 
     required this.tour,
     required this.area,
     required this.customer_count,
@@ -37,22 +35,22 @@ class DataContainer extends StatelessWidget {
             children: [Text(tour), Text(customer_count.toString())],
           ),
           Row(
-            children: [Text('Location'), Text(area)],
+            children: [const Text('Location'), Text(area)],
           ),
           Row(
-            children: [Text('Tour Agent'), Text(manager_name)],
+            children: [const Text('Tour Agent'), Text(manager_name)],
           ),
           Row(
-            children: [Text('Vehicle'), Text(vehicle.toString())],
+            children: [const Text('Vehicle'), Text(vehicle.toString())],
           ),
           Row(
-            children: [Text('Reg Num'), Text(reg_num.toString())],
+            children: [const Text('Reg Num'), Text(reg_num.toString())],
           ),
           Row(
-            children: [Text('Begin_Date'), Text(begin_date.toString())],
+            children: [const Text('Begin_Date'), Text(begin_date.toString())],
           ),
           Row(
-            children: [Text('End_Date'), Text(end_date.toString())],
+            children: [const Text('End_Date'), Text(end_date.toString())],
           ),
         ],
       ),

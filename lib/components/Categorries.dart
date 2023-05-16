@@ -5,6 +5,8 @@ import 'constant.dart';
 // We need satefull widget for our categories
 
 class Categories extends StatefulWidget {
+  const Categories({super.key});
+
   @override
   _CategoriesState createState() => _CategoriesState();
 }

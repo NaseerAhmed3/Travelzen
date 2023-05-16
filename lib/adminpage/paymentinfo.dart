@@ -25,7 +25,7 @@ class _Payment_infoState extends State<Payment_info> {
             // color: Colors.red,
             borderRadius: BorderRadius.circular(30),
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               "Payment Info",
               style: TextStyle(fontSize: 25),
@@ -45,8 +45,8 @@ class Payment_list extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-            margin: EdgeInsets.all(20),
-            child: DataTable(columns: [
+            margin: const EdgeInsets.all(20),
+            child: DataTable(columns: const [
               DataColumn(
                 label: Text('ID'),
               ),
@@ -62,7 +62,7 @@ class Payment_list extends StatelessWidget {
               DataColumn(
                 label: Text('Amount'),
               ),
-            ], rows: [
+            ], rows: const [
               DataRow(cells: [
                 DataCell(Text('1')),
                 DataCell(Text('Arshik')),

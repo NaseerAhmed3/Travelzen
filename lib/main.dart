@@ -9,7 +9,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 // Ideal time to initialize
 // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 //...
@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color.fromARGB(1, 159, 190, 238),
+        primaryColor: const Color.fromARGB(1, 159, 190, 238),
       ),
       // home: Appbar(),
-      home: Adminpage(),
+      home: const Adminpage(),
       // home: Mainclass(),
       // home: Signup(),
       // home: cars(),
@@ -43,7 +43,7 @@ class Mainclass extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        return Signin();
+        return const Signin();
         // if (snapshot.connectionState == ConnectionState.waiting) {
         //   return Center(
         //     child: CircularProgressIndicator(),

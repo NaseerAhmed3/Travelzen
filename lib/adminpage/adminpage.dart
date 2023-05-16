@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/adminpage/dashboard/hotels.dart';
 // import 'package:flutter_application_1/adminpage/dashboard/map_routs.dart';
-import 'package:flutter_application_1/adminpage/dashboard/active_tours.dart';
-import 'package:flutter_application_1/adminpage/dashboard/resturants.dart';
 import 'package:flutter_application_1/components/Categorries.dart';
 import 'package:flutter_application_1/components/textfeild.dart';
 import 'package:flutter_application_1/components/tourslist.dart';
@@ -51,7 +48,7 @@ class _AdminpageState extends State<Adminpage> {
                   height: 50,
                   width: double.infinity,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: kDefaultPaddin),
+                    padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -66,8 +63,8 @@ class _AdminpageState extends State<Adminpage> {
                     ),
                   ),
                 ),
-                RoundedInputField(hintText: "Search", picons: Icons.search),
-                Categories(),
+                const RoundedInputField(hintText: "Search", picons: Icons.search),
+                const Categories(),
                 Expanded(
                   child: Padding(
                     padding:
@@ -75,7 +72,7 @@ class _AdminpageState extends State<Adminpage> {
                     child: ListView.builder(
                         // itemCount: products.length,
 
-                        itemBuilder: (context, index) => ToursList(
+                        itemBuilder: (context, index) => const ToursList(
                             // press: () => Navigator.push(
                             //     context,
                             //     MaterialPageRoute(
