@@ -25,7 +25,6 @@ class _SigninState extends State<Signin> {
     super.dispose();
   }
 
-  @override
   bool value = false;
   @override
   Widget build(BuildContext context) {
@@ -163,7 +162,8 @@ class _SigninState extends State<Signin> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Adminpage()),
+                          MaterialPageRoute(
+                              builder: (context) => const Adminpage()),
                         );
                       } catch (e) {
                         print(e);
@@ -206,7 +206,8 @@ class _SigninState extends State<Signin> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const Signup()),
+                          MaterialPageRoute(
+                              builder: (context) => const Signup()),
                         );
                       },
                       child: const Text("Signup Here!"))

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class DataContainer extends StatelessWidget {
+class DataContainer extends StatefulWidget {
   final tour;
   final area;
-  int customer_count;
+  final customer_count;
   final manager_name;
   final vehicle;
   final reg_num;
   final begin_date;
   final end_date;
-  DataContainer({super.key, 
+  const DataContainer({
+    super.key,
     required this.tour,
     required this.area,
     required this.customer_count,
@@ -20,6 +21,11 @@ class DataContainer extends StatelessWidget {
     required this.end_date,
   });
 
+  @override
+  State<DataContainer> createState() => _DataContainerState();
+}
+
+class _DataContainerState extends State<DataContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,25 +38,34 @@ class DataContainer extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            children: [Text(tour), Text(customer_count.toString())],
+            children: [
+              Text(widget.tour),
+              Text(widget.customer_count.toString())
+            ],
           ),
           Row(
-            children: [const Text('Location'), Text(area)],
+            children: [const Text('Location'), Text(widget.area)],
           ),
           Row(
-            children: [const Text('Tour Agent'), Text(manager_name)],
+            children: [const Text('Tour Agent'), Text(widget.manager_name)],
           ),
           Row(
-            children: [const Text('Vehicle'), Text(vehicle.toString())],
+            children: [const Text('Vehicle'), Text(widget.vehicle.toString())],
           ),
           Row(
-            children: [const Text('Reg Num'), Text(reg_num.toString())],
+            children: [const Text('Reg Num'), Text(widget.reg_num.toString())],
           ),
           Row(
-            children: [const Text('Begin_Date'), Text(begin_date.toString())],
+            children: [
+              const Text('Begin_Date'),
+              Text(widget.begin_date.toString())
+            ],
           ),
           Row(
-            children: [const Text('End_Date'), Text(end_date.toString())],
+            children: [
+              const Text('End_Date'),
+              Text(widget.end_date.toString())
+            ],
           ),
         ],
       ),

@@ -21,7 +21,7 @@ class _PreviousToursState extends State<PreviousTours> {
             padding: const EdgeInsets.all(8),
             itemCount: entries.length,
             itemBuilder: (BuildContext context, int index) {
-              return DataContainer(
+              return const DataContainer(
                   tour: 'Couple Tour',
                   area: 'Naran',
                   customer_count: 50,
