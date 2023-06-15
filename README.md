@@ -1,4 +1,4 @@
-# flutter_application_1
+# the_tours
 
 A new Flutter project.
 

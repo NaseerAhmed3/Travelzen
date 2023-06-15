@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "32351388060",
-    "project_id": "travelzen-7d8e9",
-    "storage_bucket": "travelzen-7d8e9.appspot.com"
+    "project_number": "1010791168358",
+    "project_id": "tour-app-d3235",
+    "storage_bucket": "tour-app-d3235.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:32351388060:android:2a9f677f30f7cfa3a94859",
+        "mobilesdk_app_id": "1:1010791168358:android:20d166175968fa7a25f0a7",
         "android_client_info": {
-          "package_name": "com.example.travelzen"
+          "package_name": "com.example.the_tours"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "32351388060-g1dp85c7331l6q6heqstec1nv9kak0ch.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCRPteWdFCk3_5249Ag9nphFu0MZ6DtXvE"
+          "current_key": "AIzaSyCwWtRmqT7vMN2JR_cqQD0qIZ4E5i2cDBc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "32351388060-g1dp85c7331l6q6heqstec1nv9kak0ch.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
